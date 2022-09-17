@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mtlsTestWebSrv", "src\mtlsTestWebSrv\mtlsTestWebSrv.csproj", "{9CDEFC65-52EA-40C1-AB26-C0F53370CFC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{80104794-F184-4C23-BEF4-B24528E64113}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CDEFC65-52EA-40C1-AB26-C0F53370CFC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CDEFC65-52EA-40C1-AB26-C0F53370CFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CDEFC65-52EA-40C1-AB26-C0F53370CFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CDEFC65-52EA-40C1-AB26-C0F53370CFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9CDEFC65-52EA-40C1-AB26-C0F53370CFC8} = {80104794-F184-4C23-BEF4-B24528E64113}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89B91E85-D132-4922-B41B-AB1A7C6BBD4B}
+	EndGlobalSection
+EndGlobal

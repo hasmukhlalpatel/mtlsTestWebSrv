@@ -175,3 +175,63 @@ var client = new HttpClient(handler);
 
 ## 🧪 Test It Locally
 You can run both server and client locally using self-signed certs.
+
+
+## 🛠️ Step-by-Step: Create mTLS Certificates with PowerShell
+## 1. Generate a CA Certificate
+```ps
+$rootCert = New-SelfSignedCertificate `
+  -Type Custom `
+  -KeyUsage CertSign, CRLSign, DigitalSignature `
+  -Subject "CN=MyRootCA" `
+  -KeyAlgorithm RSA `
+  -KeyLength 2048 `
+  -HashAlgorithm SHA256 `
+  -CertStoreLocation "Cert:\CurrentUser\My" `
+  -NotAfter (Get-Date).AddYears(10)
+```
+## 2. Export the CA Certificate
+```ps
+Export-Certificate `
+  -Cert $rootCert `
+  -FilePath "C:\certs\MyRootCA.cer"
+```
+## 3. Generate a Server Certificate Signed by the Root CA
+```ps
+$serverCert = New-SelfSignedCertificate `
+  -Type Custom `
+  -DnsName "localhost" `
+  -KeyAlgorithm RSA `
+  -KeyLength 2048 `
+  -HashAlgorithm SHA256 `
+  -CertStoreLocation "Cert:\CurrentUser\My" `
+  -Signer $rootCert `
+  -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1") # Server Auth
+```
+## 4. Export the Server Certificate
+```ps
+Export-PfxCertificate `
+  -Cert $serverCert `
+  -FilePath "C:\certs\ServerCert.pfx" `
+  -Password (ConvertTo-SecureString -String "password" -AsPlainText -Force)
+```
+## 5. Generate a Client Certificate Signed by the Root CA
+```ps
+$clientCert = New-SelfSignedCertificate `
+  -Type Custom `
+  -Subject "CN=TestClient" `
+  -KeyAlgorithm RSA `
+  -KeyLength 2048 `
+  -HashAlgorithm SHA256 `
+  -CertStoreLocation "Cert:\CurrentUser\My" `
+  -Signer $rootCert `
+  -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2") # Client Auth
+```
+## 6. Export the Client Certificate
+```ps
+Export-PfxCertificate `
+  -Cert $clientCert `
+  -FilePath "C:\certs\ClientCert.pfx" `
+  -Password (ConvertTo-SecureString -String "password" -AsPlainText -Force)
+```
+

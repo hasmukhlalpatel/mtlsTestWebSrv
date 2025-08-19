@@ -77,3 +77,6 @@ app.MapControllerRoute(
 app.MapGet("/", () => "Hello World!");
 //app.MapPost("/ProvWeb/ezapi/CollectionsAPI/request", () => "Hello World!");
 app.Run();
+
+
+public partial class Program { } // For testing purposes

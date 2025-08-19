@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net.Http.Json;
 
@@ -28,4 +27,5 @@ namespace mtlsTestWebSrv.Integration.Tests
             response.EnsureSuccessStatusCode(); // Status Code 200-299
         }
     }
+
 }

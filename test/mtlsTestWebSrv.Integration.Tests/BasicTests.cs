@@ -4,8 +4,7 @@ using System.Net.Http.Json;
 
 namespace mtlsTestWebSrv.Integration.Tests
 {
-    public class BasicTests
-: IClassFixture<WebApplicationFactory<Program>>
+    public class BasicTests : IClassFixture<WebApplicationFactory<Program>>
     {
         private readonly WebApplicationFactory<Program> _factory;
 

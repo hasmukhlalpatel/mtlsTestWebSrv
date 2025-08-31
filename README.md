@@ -1,4 +1,5 @@
-﻿# Sample mtls Test WebSrv
+﻿# Sample MTLS Test WebSrv
+More info at [My github k3s-setup repo](https://github.com/hasmukhlalpatel/k3s-setup/blob/main/certs/README.md)
 ## 🛠️ Step-by-Step: Setting Up mTLS
 ## 1. Generate Certificates
 Use OpenSSL or PowerShell to create:
